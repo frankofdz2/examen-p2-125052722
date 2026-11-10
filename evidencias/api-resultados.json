@@ -1,0 +1,61 @@
+﻿{
+    "value":  [
+                  {
+                      "ticket_promedio":  "8136.246141",
+                      "tienda":  "T001"
+                  },
+                  {
+                      "ticket_promedio":  "8136.968852",
+                      "tienda":  "T002"
+                  },
+                  {
+                      "ticket_promedio":  "8158.906427",
+                      "tienda":  "T003"
+                  },
+                  {
+                      "ticket_promedio":  "8143.892748",
+                      "tienda":  "T004"
+                  },
+                  {
+                      "ticket_promedio":  "8146.538402",
+                      "tienda":  "T005"
+                  },
+                  {
+                      "ticket_promedio":  "8141.067115",
+                      "tienda":  "T006"
+                  },
+                  {
+                      "ticket_promedio":  "8139.972584",
+                      "tienda":  "T007"
+                  },
+                  {
+                      "ticket_promedio":  "8126.487779",
+                      "tienda":  "T008"
+                  },
+                  {
+                      "ticket_promedio":  "8154.963267",
+                      "tienda":  "T009"
+                  },
+                  {
+                      "ticket_promedio":  "8147.381126",
+                      "tienda":  "T010"
+                  },
+                  {
+                      "ticket_promedio":  "8129.938702",
+                      "tienda":  "T011"
+                  },
+                  {
+                      "ticket_promedio":  "8149.983227",
+                      "tienda":  "T012"
+                  },
+                  {
+                      "ticket_promedio":  "8158.073577",
+                      "tienda":  "T013"
+                  },
+                  {
+                      "ticket_promedio":  "8117.818678",
+                      "tienda":  "T014"
+                  }
+              ],
+    "Count":  14
+}

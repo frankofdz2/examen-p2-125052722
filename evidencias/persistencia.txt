@@ -1,0 +1,1 @@
+PERSISTENCIA_OK - 14 registros conservados despues de docker compose down y up

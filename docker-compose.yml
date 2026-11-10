@@ -1,0 +1,57 @@
+services:
+  db:
+    image: postgres:16-bookworm
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks: [datamart]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  hadoop:
+    build:
+      context: .
+      dockerfile: hadoop/Dockerfile
+    hostname: hadoop
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./datos:/data/input:ro
+      - ./salida:/data/output
+      - ssh_keys:/shared-ssh
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [datamart]
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ssh_keys:/shared-ssh:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [datamart]
+volumes:
+  postgres_data:
+  ssh_keys:
+networks:
+  datamart:
+    driver: bridge

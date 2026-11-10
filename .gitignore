@@ -1,0 +1,8 @@
+*.csv
+.env
+salida/
+datos/
+__pycache__/
+*.pyc
+*.log
+!.gitkeep
