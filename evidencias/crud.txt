@@ -1,1 +1,1 @@
-CRUD_OK: POST, GET, PUT y DELETE verificados. 14 registros originales conservados.
+CRUD_OK - 14 registros conservados - tienda temporal eliminada
